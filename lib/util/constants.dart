@@ -4,6 +4,7 @@ String description =
     "I am a passionate Flutter developer with a strong foundation in Dart programming and mobile development principles. I am always eager to learn and contribute to a fast-paced development environment and build beautiful, user-friendly mobile applications.";
 Color darkBackground = const Color.fromRGBO(3, 7, 18, 1);
 Color lightBackground = const Color.fromRGBO(17, 24, 39, 1);
+Color lighterBackground = const Color.fromRGBO(31, 41, 55, 1);
 Color lightBlueText = const Color.fromARGB(255, 172, 190, 248);
 Color darkGrey = const Color.fromRGBO(55, 65, 81, 1);
 

@@ -16,7 +16,7 @@ class SkillsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text("The Skills, Tools, and Technologies I use are: ",
+            Text("The Language, Tools, and Frameworks I use are: ",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.sp,

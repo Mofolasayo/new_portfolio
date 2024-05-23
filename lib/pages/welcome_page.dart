@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:new_portfolio/util/animated_text.dart';
 import 'package:new_portfolio/util/constants.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
+import 'package:new_portfolio/util/urlLauncher.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -56,22 +57,29 @@ class WelcomePage extends StatelessWidget {
                           height: 50,
                           child: Row(
                             children: [
-                              Container(
-                                height: 40,
-                                width: 140,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: lightBackground),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Resume ",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 16.sp),
-                                    ),
-                                    SvgPicture.string(download),
-                                  ],
+                              GestureDetector(
+                                onTap: () {
+                                  launchURL(
+                                      'https://1drv.ms/b/c/7f2fe24a911e30d6/Ee8rnxgu6ORCppuIHLlTcGYBASjcQ6Lv7ayw2gae3ik8Uw?e=X2fFuI');
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 140,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: lightBackground),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Resume ",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.sp),
+                                      ),
+                                      SvgPicture.string(download),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Container(
@@ -80,9 +88,27 @@ class WelcomePage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    SvgPicture.string(xIcon),
-                                    SvgPicture.string(github),
-                                    SvgPicture.string(linkedIn),
+                                    GestureDetector(
+                                      onTap: () {
+                                        launchURL(
+                                            'https://x.com/moe_thetechgirl/');
+                                      },
+                                      child: SvgPicture.string(
+                                        xIcon,
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                        onTap: () {
+                                          launchURL(
+                                              'https://github.com/Mofolasayo/');
+                                        },
+                                        child: SvgPicture.string(github)),
+                                    GestureDetector(
+                                        onTap: () {
+                                          launchURL(
+                                              'https://www.linkedin.com/in/mofolasayo-osikoya-b53a832a0/');
+                                        },
+                                        child: SvgPicture.string(linkedIn)),
                                     SvgPicture.string(figma)
                                   ],
                                 ),

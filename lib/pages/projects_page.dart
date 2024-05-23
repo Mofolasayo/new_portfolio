@@ -9,9 +9,24 @@ class ProjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 500,
-        width: ScreenSizer.deviceWidth(context),
-        color: lightBackground,
-        child: MovingContainers());
+      height: 573,
+      width: ScreenSizer.deviceWidth(context),
+      color: lightBackground,
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 15.0),
+            child: Text(
+              "My Projects",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(height: 500, child: MovingContainers()),
+        ],
+      ),
+    );
   }
 }

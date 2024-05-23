@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:new_portfolio/util/constants.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
+import 'package:new_portfolio/util/urlLauncher.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -42,7 +44,20 @@ class ContactPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white, fontSize: 22.sp)),
                       ),
-                      SvgPicture.string(copyIcon, height: 28),
+                      //SvgPicture.string(copyIcon, height: 28),
+                      IconButton(
+                        icon: SvgPicture.string(copyIcon, height: 28),
+                        onPressed: () {
+                          final email = 'osikoyamofolasayo@gmail.com';
+                          Clipboard.setData(ClipboardData(text: email));
+                          //Future.delayed(Duration(seconds: 2), () => text = null);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                backgroundColor: darkBackground,
+                                content: Center(child: Text('Email copied!'))),
+                          );
+                        },
+                      )
                     ],
                   ),
                 ),
@@ -60,7 +75,21 @@ class ContactPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white, fontSize: 22.sp)),
                       ),
-                      SvgPicture.string(copyIcon, height: 28),
+                      IconButton(
+                        icon: SvgPicture.string(copyIcon, height: 28),
+                        onPressed: () {
+                          final phoneNumber = '+2348104942229';
+                          Clipboard.setData(ClipboardData(text: phoneNumber));
+                          //Future.delayed(Duration(seconds: 2), () => text = null);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                backgroundColor: darkBackground,
+                                content: Center(
+                                    child: Text('Phone number copied!'))),
+                          );
+                        },
+                      )
+                      //SvgPicture.string(copyIcon, height: 28),
                     ],
                   ),
                 ),
@@ -82,9 +111,25 @@ class ContactPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SvgPicture.string(xIcon),
-                      SvgPicture.string(github),
-                      SvgPicture.string(linkedIn),
+                      GestureDetector(
+                        onTap: () {
+                          launchURL('https://x.com/moe_thetechgirl/');
+                        },
+                        child: SvgPicture.string(
+                          xIcon,
+                        ),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            launchURL('https://github.com/Mofolasayo/');
+                          },
+                          child: SvgPicture.string(github)),
+                      GestureDetector(
+                          onTap: () {
+                            launchURL(
+                                'https://www.linkedin.com/in/mofolasayo-osikoya-b53a832a0/');
+                          },
+                          child: SvgPicture.string(linkedIn)),
                       //SvgPicture.string(figma)
                     ],
                   ),
@@ -92,13 +137,13 @@ class ContactPage extends StatelessWidget {
               ],
             ),
             Container(
-              color: lightBackground,
+              color: darkBackground,
               height: 30,
               width: ScreenSizer.deviceWidth(context),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Made by Mofolasayo with Flutter ",
+                  Text("Made by Mofolasayo with Flutter",
                       style: TextStyle(color: lightBlueText, fontSize: 18.sp)),
                   SvgPicture.string(
                     blueHeart,
