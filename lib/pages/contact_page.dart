@@ -39,7 +39,7 @@ class ContactPage extends StatelessWidget {
                     children: [
                       SvgPicture.string(mailIcon, height: 25),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 10),
+                        padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("osikoyamofolasayo@gmail.com",
                             style: TextStyle(
                                 color: Colors.white, fontSize: 22.sp)),
@@ -54,7 +54,8 @@ class ContactPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 backgroundColor: darkBackground,
-                                content: Center(child: Text('Email copied!'))),
+                                content:
+                                    const Center(child: Text('Email copied!'))),
                           );
                         },
                       )
@@ -70,7 +71,7 @@ class ContactPage extends StatelessWidget {
                     children: [
                       SvgPicture.string(phoneIcon, height: 25),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 10),
+                        padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("+2348104942229",
                             style: TextStyle(
                                 color: Colors.white, fontSize: 22.sp)),
@@ -84,7 +85,7 @@ class ContactPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 backgroundColor: darkBackground,
-                                content: Center(
+                                content: const Center(
                                     child: Text('Phone number copied!'))),
                           );
                         },
@@ -103,11 +104,13 @@ class ContactPage extends StatelessWidget {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w300),
                 ),*/
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
-                  width: ScreenSizer.deviceWidth(context) * 0.15,
+                  width: ScreenSizer.isMobile(context)
+                      ? ScreenSizer.deviceWidth(context) * 0.25
+                      : ScreenSizer.deviceWidth(context) * 0.15,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

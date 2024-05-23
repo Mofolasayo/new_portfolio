@@ -5,6 +5,7 @@ import 'package:new_portfolio/screens/quiz_app.dart';
 import 'package:new_portfolio/screens/sizzle.dart';
 import 'package:new_portfolio/screens/tik_tok.dart';
 import 'package:new_portfolio/screens/word_generator.dart';
+import 'package:new_portfolio/util/screen_sizer.dart';
 
 class MovingContainers extends StatefulWidget {
   @override

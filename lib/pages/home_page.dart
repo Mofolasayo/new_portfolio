@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                     : deviceWidth * 0.3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   //padding: EdgeInsets.zero,
                   children: [
                     for (int i = 0; i < itemCount; i++)

@@ -31,14 +31,14 @@ class QuizApp extends StatelessWidget {
               children: [
                 Container(
                   height: 600,
-                  width: 600,
+                  width: ScreenSizer.deviceWidth(context) * 0.55,
                   child: const VideoPlayerScreen(
                       transformScale: 1.2,
                       videoUrl: 'assests/videos/quizApp.mp4'),
                 ),
                 Container(
                   height: 600,
-                  width: ScreenSizer.deviceWidth(context) * 0.5,
+                  width: ScreenSizer.deviceWidth(context) * 0.4,
                   //color: Colors.yellow,
                   child: Column(
                     children: [

@@ -30,14 +30,14 @@ class CalculatorApp extends StatelessWidget {
               children: [
                 Container(
                   height: 600,
-                  width: 600,
+                  width: ScreenSizer.deviceWidth(context) * 0.55,
                   child: const VideoPlayerScreen(
                       transformScale: 1.2,
                       videoUrl: 'assests/videos/calculatorApp.mp4'),
                 ),
                 Container(
                   height: 300,
-                  width: ScreenSizer.deviceWidth(context) * 0.5,
+                  width: ScreenSizer.deviceWidth(context) * 0.4,
                   //color: Colors.yellow,
                   child: Column(
                     children: [

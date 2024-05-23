@@ -24,34 +24,37 @@ class SkillsPage extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               Column(
                 children: [
-                  SvgPicture.string(flutterLogo),
+                  SvgPicture.string(flutterLogo,
+                      height: ScreenSizer.isMobile(context) ? 38 : 46),
                   Text("Flutter", style: TextStyle(color: Colors.white))
                 ],
               ),
               Column(
                 children: [
-                  SvgPicture.string(dartLogo),
+                  SvgPicture.string(dartLogo,
+                      height: ScreenSizer.isMobile(context) ? 38 : 46),
                   Text("Dart", style: TextStyle(color: Colors.white))
                 ],
               ),
               Column(
                 children: [
-                  SvgPicture.string(gitLogo),
+                  SvgPicture.string(gitLogo,
+                      height: ScreenSizer.isMobile(context) ? 38 : 46),
                   Text("Git", style: TextStyle(color: Colors.white))
                 ],
               ),
               Column(
                 children: [
-                  SvgPicture.string(
-                    gitHubLogo,
-                    color: Colors.white,
-                  ),
-                  Text("GitHub", style: TextStyle(color: Colors.white))
+                  SvgPicture.string(gitHubLogo,
+                      color: Colors.white,
+                      height: ScreenSizer.isMobile(context) ? 38 : 46),
+                  Text("GitHub", style: TextStyle(color: Colors.white, fontSize: ScreenSizer.isMobile(context) ? 13 : 16)), 
                 ],
               ),
               Column(
                 children: [
-                  SvgPicture.string(figmaLogo),
+                  SvgPicture.string(figmaLogo,
+                      height: ScreenSizer.isMobile(context) ? 38 : 46),
                   Text("Figma", style: TextStyle(color: Colors.white))
                 ],
               ),

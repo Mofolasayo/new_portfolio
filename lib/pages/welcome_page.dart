@@ -11,13 +11,25 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight;
+    if (ScreenSizer.isDesktop(context)) {
+      screenHeight = 500;
+    } else if (ScreenSizer.isBigTablet(context)) {
+      screenHeight = 450;
+    } else if (ScreenSizer.isBigTablet(context)) {
+      screenHeight = ScreenSizer.deviceHeight(context) * 0.9;
+    } else {
+      screenHeight = ScreenSizer.deviceHeight(context) * 0.87;
+    }
     return Container(
-        height: ScreenSizer.isDesktop(context)
+        height: screenHeight,
+        /*ScreenSizer.isDesktop(context)
             ? 500
-            : ScreenSizer.deviceHeight(context) * 0.87,
+            : ScreenSizer.deviceHeight(context) * 0.87,*/
         width: ScreenSizer.deviceWidth(context),
         color: darkBackground,
-        child: ScreenSizer.isDesktop(context)
+        child: ScreenSizer.isDesktop(context) ||
+                ScreenSizer.isBigTablet(context)
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -30,26 +42,31 @@ class WelcomePage extends StatelessWidget {
                       ),
                       AnimatedText(
                         myFontWeight: FontWeight.bold,
-                        textHeight: ScreenSizer.deviceHeight(context) * 0.15,
-                        fontSize40: 45.sp,
-                        textWidth: ScreenSizer.deviceWidth(context) * 0.58,
+                        textHeight: ScreenSizer.isDesktop(context)
+                            ? ScreenSizer.deviceHeight(context) * 0.15
+                            : ScreenSizer.deviceHeight(context) * 0.1,
+                        fontSize40: ScreenSizer.isDesktop(context) ? 45 : 35,
+                        textWidth: ScreenSizer.deviceWidth(context) * 0.6,
                       ),
                       Container(
-                        height: 100,
-                        width: 800,
+                        height: ScreenSizer.isDesktop(context) ? 100 : 80,
+                        width: ScreenSizer.isDesktop(context) ? 800 : 600,
                         //color: Colors.red,
                         child: Text(description,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize:
+                                    ScreenSizer.isDesktop(context) ? 16 : 14,
                                 fontWeight: FontWeight.w500)),
                       ),
-                      myLocation(16, 24),
+                      myLocation(ScreenSizer.isDesktop(context) ? 16 : 14,
+                          ScreenSizer.isDesktop(context) ? 24 : 20),
                       Container(
-                        //color: Colors.yellow,
+                        // color: Colors.yellow,
                         width: 300,
                         height: 45,
-                        child: available(16),
+                        child:
+                            available(ScreenSizer.isDesktop(context) ? 16 : 14),
                       ),
                       Container(
                           //color: Colors.green,
@@ -74,8 +91,7 @@ class WelcomePage extends StatelessWidget {
                                       Text(
                                         "Resume ",
                                         style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.sp),
+                                            color: Colors.white, fontSize: 16),
                                       ),
                                       SvgPicture.string(download),
                                     ],
@@ -115,25 +131,20 @@ class WelcomePage extends StatelessWidget {
                               ),
                             ],
                           )),
-
-                      /*Container(
-                height: 70,
-                color: Colors.red,
-              ),*/
                     ],
                   ),
                   Stack(
                     children: [
                       Container(
-                        height: 320,
-                        width: 280,
+                        height: ScreenSizer.isDesktop(context) ? 320 : 280,
+                        width: ScreenSizer.isDesktop(context) ? 280 : 240,
                         color: lightBackground,
                       ),
                       Transform.translate(
                         offset: const Offset(-25, -25),
                         child: profileImage(
-                          height: 320,
-                          width: 280,
+                          height: ScreenSizer.isDesktop(context) ? 320 : 280,
+                          width: ScreenSizer.isDesktop(context) ? 280 : 240,
                         ),
                       ),
                     ],
@@ -162,11 +173,13 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   AnimatedText(
                     myFontWeight: FontWeight.bold,
-                    textHeight: ScreenSizer.deviceHeight(context) * 0.06,
-                    fontSize40: 20,
+                    textHeight: ScreenSizer.isMobile(context)
+                        ? ScreenSizer.deviceHeight(context) * 0.06
+                        : ScreenSizer.deviceHeight(context) * 0.1,
+                    fontSize40: ScreenSizer.isMobile(context) ? 20 : 40,
                     textWidth: ScreenSizer.deviceWidth(context) * 0.9,
                   ),
                   Column(

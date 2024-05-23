@@ -15,8 +15,11 @@ class ScreenSizer extends StatelessWidget {
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width <= 500.0;
 //800
-  static bool isTablet(BuildContext context) =>
+  static bool isSmallTablet(BuildContext context) =>
       MediaQuery.of(context).size.width >= 501 &&
+      MediaQuery.of(context).size.width < 950;
+  static bool isBigTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1100 &&
       MediaQuery.of(context).size.width < 1150;
 
   static bool isDesktop(BuildContext context) =>

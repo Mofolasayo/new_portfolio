@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     Size designSize;
     if (ScreenSizer.isDesktop(context)) {
       designSize = const Size(1440, 6522);
-    } else if (ScreenSizer.isTablet(context)) {
+    } else if (ScreenSizer.isSmallTablet(context)) {
       designSize = const Size(750, 8500);
     } else {
       designSize = const Size(500, 9382);
