@@ -11,21 +11,68 @@ class TikTok extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackground,
-      appBar: AppBar(
-        backgroundColor: darkBackground,
-        title: Text(
-          'TikTok App',
-          style: TextStyle(color: lightBlueText),
+        backgroundColor: lightBackground,
+        appBar: AppBar(
+          backgroundColor: darkBackground,
+          title: Text(
+            'TikTok Clone',
+            style: TextStyle(color: lightBlueText),
+          ),
+          iconTheme: IconThemeData(
+            color: lightBlueText,
+          ),
+          centerTitle: true,
         ),
-        iconTheme: IconThemeData(
-          color: lightBlueText,
-        ),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: SizedBox(
+        body: Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: ScreenSizer.isDesktop(context) ||
+                    ScreenSizer.isBigTablet(context)
+                ? SizedBox(
+                    height: ScreenSizer.deviceHeight(context) * 0.9,
+                    width: ScreenSizer.deviceWidth(context) * 0.95,
+                    child: Row(
+                      children: [
+                        Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
+                            'assests/videos/tikTokVideo.mp4'),
+                        videoDescription(
+                            ScreenSizer.deviceWidth(context) * 0.4,
+                            300,
+                            "A short-form video-sharing app built using Flutter, replicating the core functionalities of TikTok. Users can scroll through a feed of short videos, pause and play videos, and even have access to a built-in camera.",
+                            false,
+                            false)
+                      ],
+                    ))
+                : SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Video(
+                            ScreenSizer.isMobile(context) ||
+                                    ScreenSizer.isBigMobile(context)
+                                ? ScreenSizer.deviceWidth(context) * 0.8
+                                : ScreenSizer.deviceWidth(context) * 0.7,
+                            500,
+                            'assests/videos/tikTokVideo.mp4'),
+                        SizedBox(
+                          height: 70,
+                        ),
+                        Center(
+                          child: videoDescription(
+                              /*ScreenSizer.isMobile(context) ||
+                                        ScreenSizer.isBigMobile(context)
+                                    ? ScreenSizer.deviceWidth(context) * 0.8
+                                    : ScreenSizer.deviceWidth(context) * 0.6,*/
+                              ScreenSizer.deviceWidth(context) * 0.9,
+                              350,
+                              "A short-form video-sharing app built using Flutter, replicating the core functionalities of TikTok. Users can scroll through a feed of short videos, pause and play videos, and even have access to a built-in camera.",
+                              false,
+                              false),
+                        ),
+                      ],
+                    ),
+                  ))
+
+        /*SizedBox(
             height: ScreenSizer.deviceHeight(context) * 0.9,
             width: ScreenSizer.deviceWidth(context) * 0.95,
             child: Row(
@@ -69,7 +116,7 @@ class TikTok extends StatelessWidget {
                 )
               ],
             )),
-      ),
-    );
+      ),*/
+        );
   }
 }

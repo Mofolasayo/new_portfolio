@@ -46,6 +46,7 @@ Final Score Calculation: Upon completing the quiz, users receive a final score s
                               ScreenSizer.deviceWidth(context) * 0.4,
                               500,
                               description,
+                              false,
                               false)
                         ],
                       ))
@@ -67,13 +68,10 @@ Final Score Calculation: Upon completing the quiz, users receive a final score s
                             child: Column(
                               children: [
                                 videoDescription(
-                                    /*ScreenSizer.isMobile(context) ||
-                                            ScreenSizer.isBigMobile(context)
-                                        ? ScreenSizer.deviceWidth(context) * 0.8
-                                        : ScreenSizer.deviceWidth(context) * 0.6,*/
                                     ScreenSizer.deviceWidth(context) * 0.9,
-                                    450,
+                                    600,
                                     description,
+                                    false,
                                     false),
                               ],
                             ),

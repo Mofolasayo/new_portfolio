@@ -36,6 +36,7 @@ class CalculatorApp extends StatelessWidget {
                               ScreenSizer.deviceWidth(context) * 0.4,
                               300,
                               "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
+                              false,
                               false)
                         ],
                       ))
@@ -62,6 +63,7 @@ class CalculatorApp extends StatelessWidget {
                                 ScreenSizer.deviceWidth(context) * 0.9,
                                 350,
                                 "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
+                                false,
                                 false),
                           ),
                         ],

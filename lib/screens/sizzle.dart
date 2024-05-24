@@ -48,7 +48,8 @@ The app leverages:
 API Integration: Connects to a recipe API to fetch a vast collection of recipes with ingredients, instructions, alongside images.
 User Authentication: Implements secure login and registration functionalities.
 Flutter Development: Built with Flutter for a smooth and native user experience across Android devices. The app utilizes Flutter's rich widgets and functionalities for a visually appealing and interactive interface which allows users to Browse a wide variety of recipes based on categories and view detailed recipe information, including ingredients, instructions, and images of their selected dish.''',
-                              true)
+                              true,
+                              false)
                         ],
                       ))
                   : SingleChildScrollView(
@@ -78,7 +79,8 @@ The app leverages:
 API Integration: Connects to a recipe API to fetch a vast collection of recipes with ingredients, instructions, alongside images.
 User Authentication: Implements secure login and registration functionalities.
 Flutter Development: Built with Flutter for a smooth and native user experience across Android devices. The app utilizes Flutter's rich widgets and functionalities for a visually appealing and interactive interface which allows users to Browse a wide variety of recipes based on categories and view detailed recipe information, including ingredients, instructions, and images of their selected dish.''',
-                                  true),
+                                  true,
+                                  false),
                             ),
                           ),
                         ],

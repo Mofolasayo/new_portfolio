@@ -10,6 +10,13 @@ class WordGenerator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String myDescription = '''
+This creative Flutter app, built with responsiveness in mind, explores unique word combinations for fun and inspiration. This app makes use of the provider package for state management. Here's what it offers:
+Word Merging: Generates novel, potentially cool-sounding names by combining two randomly chosen words from the English words package. Examples include "mainbrake," "graypine.""lightyear"
+Interactive Discovery: With a tap, you can generate a new name, keeping things fresh and exciting.
+Favorites List: it stores and keeps track of 'favorite' names on a dedicated page for future reference or inspiration.
+Responsive Design: The app adapts seamlessly to different screen sizes, ensuring a smooth user experience across various devices.
+''';
     return Scaffold(
       backgroundColor: lightBackground,
       appBar: AppBar(
@@ -24,8 +31,54 @@ class WordGenerator extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: SizedBox(
+          padding: const EdgeInsets.only(top: 20.0),
+          child:
+              ScreenSizer.isDesktop(context) || ScreenSizer.isBigTablet(context)
+                  ? SizedBox(
+                      height: ScreenSizer.deviceHeight(context) * 0.9,
+                      width: ScreenSizer.deviceWidth(context) * 0.95,
+                      child: Row(
+                        children: [
+                          Video(ScreenSizer.deviceWidth(context) * 0.5, 600,
+                              'assests/videos/wordGenerator.mp4'),
+                          videoDescription(
+                              ScreenSizer.deviceWidth(context) * 0.45,
+                              500,
+                              myDescription,
+                              false,
+                              true)
+                        ],
+                      ))
+                  : SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Video(
+                              ScreenSizer.isMobile(context) ||
+                                      ScreenSizer.isBigMobile(context)
+                                  ? ScreenSizer.deviceWidth(context) * 0.8
+                                  : ScreenSizer.deviceWidth(context) * 0.7,
+                              600,
+                              'assests/videos/wordGenerator.mp4'),
+                          SizedBox(
+                            height: 70,
+                          ),
+                          Center(
+                            child: videoDescription(
+                                /*ScreenSizer.isMobile(context) ||
+                                        ScreenSizer.isBigMobile(context)
+                                    ? ScreenSizer.deviceWidth(context) * 0.8
+                                    : ScreenSizer.deviceWidth(context) * 0.6,*/
+                                ScreenSizer.deviceWidth(context) * 0.9,
+                                600,
+                                myDescription,
+                                false,
+                                true),
+                          ),
+                        ],
+                      ),
+                    )
+          /*SizedBox(
             height: ScreenSizer.deviceHeight(context) * 0.9,
             width: ScreenSizer.deviceWidth(context) * 0.95,
             child: Row(
@@ -68,8 +121,8 @@ class WordGenerator extends StatelessWidget {
                   ),
                 )
               ],
-            )),
-      ),
+            )),*/
+          ),
     );
   }
 }
