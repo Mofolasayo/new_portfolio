@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_portfolio/util/constants.dart';
+import 'package:new_portfolio/util/my_widgets.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
 import 'package:new_portfolio/util/video_player.dart';
 
@@ -30,7 +31,8 @@ class CalculatorApp extends StatelessWidget {
                       width: ScreenSizer.deviceWidth(context) * 0.95,
                       child: Row(
                         children: [
-                          Video(ScreenSizer.deviceWidth(context) * 0.55, 600),
+                          Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
+                              'assests/videos/calculatorApp.mp4'),
                           videoDescription(
                               ScreenSizer.deviceWidth(context) * 0.4, 300)
                         ],
@@ -39,13 +41,24 @@ class CalculatorApp extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Video(ScreenSizer.deviceWidth(context) * 0.9, 500),
+                          Video(
+                              ScreenSizer.isMobile(context) ||
+                                      ScreenSizer.isBigMobile(context)
+                                  ? ScreenSizer.deviceWidth(context) * 0.8
+                                  : ScreenSizer.deviceWidth(context) * 0.7,
+                              500,
+                              'assests/videos/calculatorApp.mp4'),
                           SizedBox(
                             height: 70,
                           ),
                           Center(
                             child: videoDescription(
-                                ScreenSizer.deviceWidth(context) * 0.8, 350),
+                                /*ScreenSizer.isMobile(context) ||
+                                        ScreenSizer.isBigMobile(context)
+                                    ? ScreenSizer.deviceWidth(context) * 0.8
+                                    : ScreenSizer.deviceWidth(context) * 0.6,*/
+                                ScreenSizer.deviceWidth(context) * 0.9,
+                                350),
                           )
                         ],
                       ),
@@ -54,12 +67,11 @@ class CalculatorApp extends StatelessWidget {
   }
 }
 
-Widget Video(width, height) {
+/*Widget Video(width, height, myUrl) {
   return Container(
     height: height,
     width: width,
-    child: const VideoPlayerScreen(
-        transformScale: 1.2, videoUrl: 'assests/videos/calculatorApp.mp4'),
+    child: VideoPlayerScreen(transformScale: 1.2, videoUrl: myUrl),
   );
 }
 
@@ -67,7 +79,7 @@ Widget videoDescription(width, height) {
   return Container(
     height: height,
     width: width,
-    color: Colors.yellow,
+    //color: Colors.yellow,
     child: Column(
       children: [
         Text(
@@ -110,4 +122,4 @@ Widget toolButton(String text) {
       style: TextStyle(color: Colors.white),
     ),
   );
-}
+}*/
