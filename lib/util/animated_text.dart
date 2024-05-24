@@ -19,6 +19,7 @@ class AnimatedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      //alignment: Alignment.center,
       height: textHeight, //140
       width: textWidth, //850
       //color: Colors.blue,

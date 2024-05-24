@@ -9,6 +9,7 @@ import 'package:new_portfolio/pages/skills_page.dart';
 import 'package:new_portfolio/pages/welcome_page.dart';
 import 'package:new_portfolio/util/constants.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
+import 'package:new_portfolio/util/urlLauncher.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,10 +55,10 @@ class _HomePageState extends State<HomePage> {
             fontSize: toPage == selectedIndex
                 ? ScreenSizer.isMobile(context)
                     ? 20.sp * 1.2
-                    : 16.sp * 1.2
-                : ScreenSizer.isMobile(context)
-                    ? 20.sp
-                    : 16.sp,
+                    : 16 * 1.2
+                : ScreenSizer.isSmallTablet(context)
+                    ? 16
+                    : 18,
             fontWeight:
                 toPage == selectedIndex ? FontWeight.bold : FontWeight.w400,
             color: isSelected ? lightBlueText : Colors.white,
@@ -130,7 +131,12 @@ class _HomePageState extends State<HomePage> {
                       ],
                     );
                   })
-                : Container(
+                : GestureDetector(
+                    //not working properly
+                    onTap: () {
+                      launchURL(
+                          'https://1drv.ms/b/c/7f2fe24a911e30d6/Ee8rnxgu6ORCppuIHLlTcGYBASjcQ6Lv7ayw2gae3ik8Uw?e=X2fFuI');
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       //mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: lightBackground,
                 width: ScreenSizer.isMobile(context)
                     ? deviceWidth * 0.5
-                    : deviceWidth * 0.3,
+                    : deviceWidth * 0.4,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -27,7 +27,7 @@ class ContactPage extends StatelessWidget {
                   child: Text('Want to connect with me?',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 25.sp,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold)),
                 ),
                 Container(
@@ -41,8 +41,8 @@ class ContactPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("osikoyamofolasayo@gmail.com",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 22.sp)),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 22)),
                       ),
                       //SvgPicture.string(copyIcon, height: 28),
                       IconButton(
@@ -73,8 +73,8 @@ class ContactPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("+2348104942229",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 22.sp)),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 22)),
                       ),
                       IconButton(
                         icon: SvgPicture.string(copyIcon, height: 28),
@@ -108,7 +108,9 @@ class ContactPage extends StatelessWidget {
                   height: 15,
                 ),
                 Container(
-                  width: ScreenSizer.isMobile(context)
+                  width: ScreenSizer.isMobile(context) ||
+                          ScreenSizer.isSmallTablet(context) ||
+                          ScreenSizer.isBigMobile(context)
                       ? ScreenSizer.deviceWidth(context) * 0.25
                       : ScreenSizer.deviceWidth(context) * 0.15,
                   child: Row(

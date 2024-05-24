@@ -19,13 +19,20 @@ class SkillsPage extends StatelessWidget {
             Text("The Language, Tools, and Frameworks I use are: ",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20.sp,
+                    fontSize: ScreenSizer.isMobile(context)
+                        ? 15
+                        : ScreenSizer.isDesktop(context)
+                            ? 30
+                            : 20,
                     fontWeight: FontWeight.bold)),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               Column(
                 children: [
                   SvgPicture.string(flutterLogo,
                       height: ScreenSizer.isMobile(context) ? 38 : 46),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text("Flutter", style: TextStyle(color: Colors.white))
                 ],
               ),
@@ -33,6 +40,9 @@ class SkillsPage extends StatelessWidget {
                 children: [
                   SvgPicture.string(dartLogo,
                       height: ScreenSizer.isMobile(context) ? 38 : 46),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text("Dart", style: TextStyle(color: Colors.white))
                 ],
               ),
@@ -40,6 +50,9 @@ class SkillsPage extends StatelessWidget {
                 children: [
                   SvgPicture.string(gitLogo,
                       height: ScreenSizer.isMobile(context) ? 38 : 46),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text("Git", style: TextStyle(color: Colors.white))
                 ],
               ),
@@ -48,13 +61,22 @@ class SkillsPage extends StatelessWidget {
                   SvgPicture.string(gitHubLogo,
                       color: Colors.white,
                       height: ScreenSizer.isMobile(context) ? 38 : 46),
-                  Text("GitHub", style: TextStyle(color: Colors.white, fontSize: ScreenSizer.isMobile(context) ? 13 : 16)), 
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text("GitHub",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: ScreenSizer.isMobile(context) ? 13 : 16)),
                 ],
               ),
               Column(
                 children: [
                   SvgPicture.string(figmaLogo,
                       height: ScreenSizer.isMobile(context) ? 38 : 46),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text("Figma", style: TextStyle(color: Colors.white))
                 ],
               ),

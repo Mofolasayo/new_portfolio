@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:new_portfolio/util/animated_text.dart';
 import 'package:new_portfolio/util/constants.dart';
@@ -16,8 +16,9 @@ class WelcomePage extends StatelessWidget {
       screenHeight = 500;
     } else if (ScreenSizer.isBigTablet(context)) {
       screenHeight = 450;
-    } else if (ScreenSizer.isBigTablet(context)) {
-      screenHeight = ScreenSizer.deviceHeight(context) * 0.9;
+    } else if (ScreenSizer.isSmallTablet(context) ||
+        ScreenSizer.isBigMobile(context)) {
+      screenHeight = ScreenSizer.deviceHeight(context) * 1.0;
     } else {
       screenHeight = ScreenSizer.deviceHeight(context) * 0.87;
     }
@@ -174,51 +175,72 @@ class WelcomePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 25),
-                  AnimatedText(
-                    myFontWeight: FontWeight.bold,
-                    textHeight: ScreenSizer.isMobile(context)
-                        ? ScreenSizer.deviceHeight(context) * 0.06
-                        : ScreenSizer.deviceHeight(context) * 0.1,
-                    fontSize40: ScreenSizer.isMobile(context) ? 20 : 40,
-                    textWidth: ScreenSizer.deviceWidth(context) * 0.9,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          //color: Colors.red,
-                          width: ScreenSizer.deviceWidth(context) * 0.9,
-                          height: ScreenSizer.deviceHeight(context) * 0.18,
-                          child: Text(description,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13.8,
-                                  height: 1.5,
-                                  fontWeight: FontWeight.w500))),
-                      myLocation(13, 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          available(13.5),
-                          Container(
+                  Container(
+                    width: ScreenSizer.deviceWidth(context) * 0.9,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        AnimatedText(
+                          myFontWeight: FontWeight.bold,
+                          textHeight: ScreenSizer.isMobile(context)
+                              ? ScreenSizer.deviceHeight(context) * 0.06
+                              : ScreenSizer.deviceHeight(context) * 0.1,
+                          fontSize40: ScreenSizer.isMobile(context)
+                              ? 20
+                              : ScreenSizer.isBigMobile(context)
+                                  ? 25
+                                  : 30,
+                          textWidth: ScreenSizer.deviceWidth(context) * 0.9,
+                        ),
+                        Container(
                             //color: Colors.red,
-                            width: ScreenSizer.deviceWidth(context) * 0.3,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                SvgPicture.string(xIcon, height: 18, width: 20),
-                                SvgPicture.string(github,
-                                    height: 30, width: 20),
-                                SvgPicture.string(linkedIn,
-                                    height: 18, width: 20),
-                                SvgPicture.string(figma, height: 25, width: 20)
-                              ],
+                            width: ScreenSizer.deviceWidth(context) * 0.9,
+                            height: ScreenSizer.isSmallTablet(context) ||
+                                    ScreenSizer.isBigMobile(context)
+                                ? ScreenSizer.deviceHeight(context) * 0.14
+                                : ScreenSizer.deviceHeight(context) * 0.18,
+                            child: Text(description,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    height: 1.5,
+                                    fontWeight: FontWeight.w500))),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: ScreenSizer.deviceWidth(context) * 0.9,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        myLocation(13, 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            available(13.5),
+                            Container(
+                              //color: Colors.red,
+                              width: ScreenSizer.deviceWidth(context) * 0.3,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SvgPicture.string(xIcon,
+                                      height: 18, width: 20),
+                                  SvgPicture.string(github,
+                                      height: 30, width: 20),
+                                  SvgPicture.string(linkedIn,
+                                      height: 18, width: 20),
+                                  SvgPicture.string(figma,
+                                      height: 25, width: 20)
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 18),
-                    ],
+                          ],
+                        ),
+                        const SizedBox(height: 18),
+                      ],
+                    ),
                   ),
                 ]),
               ));
