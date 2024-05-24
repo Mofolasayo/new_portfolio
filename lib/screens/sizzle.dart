@@ -13,24 +13,78 @@ class Sizzle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackground,
-      appBar: AppBar(
-        backgroundColor: darkBackground,
-        title: Text(
-          'TikTok App',
-          style: TextStyle(color: lightBlueText),
+        backgroundColor: lightBackground,
+        appBar: AppBar(
+          backgroundColor: darkBackground,
+          title: Text(
+            'Sizzle',
+            style: TextStyle(color: lightBlueText),
+          ),
+          iconTheme: IconThemeData(
+            color: lightBlueText,
+          ),
+          centerTitle: true,
         ),
-        iconTheme: IconThemeData(
-          color: lightBlueText,
-        ),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: SizedBox(
-            height: ScreenSizer.deviceHeight(context) * 0.9,
-            width: ScreenSizer.deviceWidth(context) * 0.95,
-            child: Row(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+              height: ScreenSizer.deviceHeight(context) * 0.9,
+              width: ScreenSizer.deviceWidth(context) * 0.95,
+              child: ScreenSizer.isDesktop(context) ||
+                      ScreenSizer.isBigTablet(context)
+                  ? SizedBox(
+                      height: ScreenSizer.deviceHeight(context) * 0.9,
+                      width: ScreenSizer.deviceWidth(context) * 0.95,
+                      child: Row(
+                        children: [
+                          Video(ScreenSizer.deviceWidth(context) * 0.5, 600,
+                              'assests/videos/Sizzle.mp4'),
+                          videoDescription(
+                              ScreenSizer.deviceWidth(context) * 0.45,
+                              600,
+                              '''
+Sizzle is a  recipe app that showcases a thorough understanding of using various Flutter Widgets within Flutter such as Forms, Lists, Grid Views, Scaffolds, Buttons, Text, Images, Columns, Rows and a whole lot more. It serves as a practical example of applying core Flutter concepts such as Widgets, State Management, Authentication, Network Requests, Responsive Design, Navigation and much more.
+The app leverages:
+API Integration: Connects to a recipe API to fetch a vast collection of recipes with ingredients, instructions, alongside images.
+User Authentication: Implements secure login and registration functionalities.
+Flutter Development: Built with Flutter for a smooth and native user experience across Android devices. The app utilizes Flutter's rich widgets and functionalities for a visually appealing and interactive interface which allows users to Browse a wide variety of recipes based on categories and view detailed recipe information, including ingredients, instructions, and images of their selected dish.''',
+                              true)
+                        ],
+                      ))
+                  : SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Video(
+                              ScreenSizer.isMobile(context) ||
+                                      ScreenSizer.isBigMobile(context)
+                                  ? ScreenSizer.deviceWidth(context) * 0.9
+                                  : ScreenSizer.deviceWidth(context) * 0.7,
+                              700,
+                              'assests/videos/Sizzle.mp4'),
+                          SizedBox(
+                            height: 70,
+                          ),
+                          Center(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: videoDescription(
+                                  ScreenSizer.deviceWidth(context) * 0.8,
+                                  800,
+                                  '''
+Sizzle is a  recipe app that showcases a thorough understanding of using various Flutter Widgets within Flutter such as Forms, Lists, Grid Views, Scaffolds, Buttons, Text, Images, Columns, Rows and a whole lot more. It serves as a practical example of applying core Flutter concepts such as Widgets, State Management, Authentication, Network Requests, Responsive Design, Navigation and much more.
+The app leverages:
+API Integration: Connects to a recipe API to fetch a vast collection of recipes with ingredients, instructions, alongside images.
+User Authentication: Implements secure login and registration functionalities.
+Flutter Development: Built with Flutter for a smooth and native user experience across Android devices. The app utilizes Flutter's rich widgets and functionalities for a visually appealing and interactive interface which allows users to Browse a wide variety of recipes based on categories and view detailed recipe information, including ingredients, instructions, and images of their selected dish.''',
+                                  true),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+              /*Row(
               children: [
                 Container(
                   height: 600,
@@ -74,9 +128,9 @@ class Sizzle extends StatelessWidget {
                   ),
                 )
               ],
-            )),
-      ),
-    );
+            )),*/
+              ),
+        ));
   }
 }
 

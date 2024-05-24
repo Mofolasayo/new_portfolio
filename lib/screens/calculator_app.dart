@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:new_portfolio/util/constants.dart';
 import 'package:new_portfolio/util/my_widgets.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
-import 'package:new_portfolio/util/video_player.dart';
 
 class CalculatorApp extends StatelessWidget {
   const CalculatorApp({super.key});
@@ -34,7 +33,10 @@ class CalculatorApp extends StatelessWidget {
                           Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
                               'assests/videos/calculatorApp.mp4'),
                           videoDescription(
-                              ScreenSizer.deviceWidth(context) * 0.4, 300)
+                              ScreenSizer.deviceWidth(context) * 0.4,
+                              300,
+                              "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
+                              false)
                         ],
                       ))
                   : SingleChildScrollView(
@@ -58,8 +60,10 @@ class CalculatorApp extends StatelessWidget {
                                     ? ScreenSizer.deviceWidth(context) * 0.8
                                     : ScreenSizer.deviceWidth(context) * 0.6,*/
                                 ScreenSizer.deviceWidth(context) * 0.9,
-                                350),
-                          )
+                                350,
+                                "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
+                                false),
+                          ),
                         ],
                       ),
                     )),

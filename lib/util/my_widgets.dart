@@ -10,7 +10,7 @@ Widget Video(width, height, myUrl) {
   );
 }
 
-Widget videoDescription(width, height) {
+Widget videoDescription(width, height, text, bool showApi) {
   return Container(
     height: height,
     width: width,
@@ -18,7 +18,7 @@ Widget videoDescription(width, height) {
     child: Column(
       children: [
         Text(
-          "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
+          text,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
@@ -35,6 +35,10 @@ Widget videoDescription(width, height) {
                 width: 10,
               ),
               toolButton("Dart"),
+              SizedBox(
+                width: 10,
+              ),
+              if (showApi == true) toolButton("Rest Api"),
             ],
           ),
         )
