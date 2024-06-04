@@ -75,8 +75,9 @@ flutter:
   assets:
      - assests/image/profileImage.jpg
      - assests/image/profileImage1.jpg
+     - assests/image/profileImage2.png
      - assests/image/calculatorApp.jpg
-     - assests/image/portfolio.jpg
+     - assests/image/portfolio1.jpg
      - assests/image/Sizzle.jpg
      - assests/image/quizApp.jpg
      - assests/image/tikTok.jpg
@@ -86,6 +87,8 @@ flutter:
      - assests/videos/tikTokVideo.mp4
      - assests/videos/wordGenerator.mp4
      - assests/videos/Sizzle.mp4
+     - assests/videos/portfolio.mp4
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

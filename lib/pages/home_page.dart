@@ -11,6 +11,7 @@ import 'package:new_portfolio/util/constants.dart';
 import 'package:new_portfolio/util/screen_sizer.dart';
 import 'package:new_portfolio/util/urlLauncher.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -135,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                     //not working properly
                     onTap: () {
                       launchURL(
-                          'https://1drv.ms/b/c/7f2fe24a911e30d6/Ee8rnxgu6ORCppuIHLlTcGYBASjcQ6Lv7ayw2gae3ik8Uw?e=X2fFuI');
+                          'https://1drv.ms/b/c/7f2fe24a911e30d6/EQqZtxuDUypDjs8UkQlKDHgBmtoLdZq07Y6HJlVzsv81xQ?e=narSo1');
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -194,9 +195,22 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          SvgPicture.string(xIcon),
-                          SvgPicture.string(github),
-                          SvgPicture.string(linkedIn),
+                          InkWell(
+                              onTap: () {
+                                launchURL('https://x.com/moe_thetechgirl/');
+                              },
+                              child: SvgPicture.string(xIcon)),
+                          InkWell(
+                              onTap: () {
+                                launchURL('https://github.com/Mofolasayo/');
+                              },
+                              child: SvgPicture.string(github)),
+                          InkWell(
+                              onTap: () {
+                                launchURL(
+                                    'https://www.linkedin.com/in/mofolasayo-osikoya-b53a832a0/');
+                              },
+                              child: SvgPicture.string(linkedIn)),
                           SvgPicture.string(figma)
                         ],
                       ),

@@ -31,8 +31,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       height: ScreenSizer.isDesktop(context)
           ? ScreenSizer.deviceHeight(context) * 0.7
           : ScreenSizer.isMobile(context)
-              ? ScreenSizer.deviceHeight(context) * 0.9
-              : ScreenSizer.deviceHeight(context) * 0.85,
+              ? ScreenSizer.deviceHeight(context)
+              : ScreenSizer.deviceHeight(context) * 0.95,
       /*ScreenSizer.isMobile(context)
           ? 500
           : ScreenSizer.isTablet(context)
@@ -41,20 +41,24 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       width: ScreenSizer.deviceWidth(context),
       color: lightBackground,
       child: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
+        padding: const EdgeInsets.only(top: 20.0, left: 25, right: 25),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-              child: Text("Still curious? Here's more about me...",
-                  style: TextStyle(
-                      fontSize: ScreenSizer.isDesktop(context) ? 30 : 20,
-                      fontWeight: ScreenSizer.isMobile(context)
-                          ? FontWeight.bold
-                          : FontWeight.w600,
-                      color: Colors.white)),
+              padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 20),
+              child: Container(
+                alignment: Alignment.center,
+                width: ScreenSizer.deviceWidth(context) * 0.9,
+                child: Text("Here's a little bit more about me...",
+                    style: TextStyle(
+                        fontSize: ScreenSizer.isDesktop(context) ? 30 : 20,
+                        fontWeight: ScreenSizer.isMobile(context)
+                            ? FontWeight.bold
+                            : FontWeight.w600,
+                        color: Colors.white)),
+              ),
             ),
             AnimatedOpacity(
               opacity: _visible ? 0.0 : 1.0,
@@ -69,12 +73,12 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                 height: ScreenSizer.isDesktop(context)
                     ? ScreenSizer.deviceHeight(context) * 0.5
                     : ScreenSizer.isMobile(context)
-                        ? ScreenSizer.deviceHeight(context) * 0.7
+                        ? ScreenSizer.deviceHeight(context) * 0.8
                         : ScreenSizer.isSmallTablet(context) ||
                                 ScreenSizer.isBigMobile(context)
                             ? ScreenSizer.deviceHeight(context) * 0.6
                             : ScreenSizer.deviceHeight(context) * 0.4,
-                width: ScreenSizer.deviceWidth(context) * 0.89,
+                width: ScreenSizer.deviceWidth(context) * 0.9,
                 child: Text(
                   '''As a skilled Flutter developer, I possess a strong foundation in Dart programming and mobile development principles. My passion for coding and eagerness to learn make me an ideal candidate for any fast-paced development environment. I take pride in creating beautiful, user-friendly mobile applications that offer an exceptional user experience.\n\nCurrently, I am pursuing my Bachelor's degree in Computer Science at the University of the People, where I am constantly expanding my knowledge and honing my skills. My expertise lies in creating interactive, animated web pages and mobile applications that are not only visually appealing but also easy to navigate.\n\nMy goal as a Flutter developer is to provide innovative solutions to real-world problems, using my skills to create mobile applications that offer seamless performance and functionality. I am confident that my experience and expertise make me a valuable addition to any development team, and I look forward to continuing to grow in this exciting field.''',
                   style: TextStyle(

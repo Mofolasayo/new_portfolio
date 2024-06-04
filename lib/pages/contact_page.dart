@@ -42,7 +42,7 @@ class ContactPage extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("osikoyamofolasayo@gmail.com",
                             style:
-                                TextStyle(color: Colors.white, fontSize: 22)),
+                                TextStyle(color: Colors.white, fontSize: 17)),
                       ),
                       //SvgPicture.string(copyIcon, height: 28),
                       IconButton(
@@ -74,7 +74,7 @@ class ContactPage extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 8.0, right: 0),
                         child: Text("+2348104942229",
                             style:
-                                TextStyle(color: Colors.white, fontSize: 22)),
+                                TextStyle(color: Colors.white, fontSize: 17)),
                       ),
                       IconButton(
                         icon: SvgPicture.string(copyIcon, height: 28),

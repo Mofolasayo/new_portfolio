@@ -10,16 +10,15 @@ class QuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    description = '''
+    String projectDescription = '''
 This interactive Flutter quiz app challenges users with a variety of questions to test their knowledge. Here's what it offers:
-
 Multiple Choice Format: Presents users with multiple answer choices for each question, promoting active participation and critical thinking.
 Real-time Feedback: Users receive immediate feedback on their selections, indicating if their answers are correct or incorrect.
 Answer Tracking: The app keeps track of both chosen and incorrect answers, allowing users to analyze their mistakes and improve their understanding.
 Final Score Calculation: Upon completing the quiz, users receive a final score summarizing their performance.
 ''';
     return Scaffold(
-      backgroundColor: lightBackground,
+      backgroundColor: darkBackground,
       appBar: AppBar(
         backgroundColor: darkBackground,
         title: Text(
@@ -33,52 +32,48 @@ Final Score Calculation: Upon completing the quiz, users receive a final score s
       ),
       body: Padding(
           padding: const EdgeInsets.only(top: 40.0),
-          child:
-              ScreenSizer.isDesktop(context) || ScreenSizer.isBigTablet(context)
-                  ? SizedBox(
-                      height: ScreenSizer.deviceHeight(context) * 0.9,
-                      width: ScreenSizer.deviceWidth(context) * 0.95,
-                      child: Row(
-                        children: [
-                          Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
-                              'assests/videos/quizApp.mp4'),
-                          videoDescription(
-                              ScreenSizer.deviceWidth(context) * 0.4,
-                              500,
-                              description,
-                              false,
-                              false)
-                        ],
-                      ))
-                  : SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Video(
-                              ScreenSizer.isMobile(context) ||
-                                      ScreenSizer.isBigMobile(context)
-                                  ? ScreenSizer.deviceWidth(context) * 0.8
-                                  : ScreenSizer.deviceWidth(context) * 0.7,
-                              500,
-                              'assests/videos/quizApp.mp4'),
-                          SizedBox(
-                            height: 70,
-                          ),
-                          Center(
-                            child: Column(
-                              children: [
-                                videoDescription(
-                                    ScreenSizer.deviceWidth(context) * 0.9,
-                                    600,
-                                    description,
-                                    false,
-                                    false),
-                              ],
-                            ),
-                          ),
-                        ],
+          child: ScreenSizer.isDesktop(context) ||
+                  ScreenSizer.isBigTablet(context)
+              ? SizedBox(
+                  height: ScreenSizer.deviceHeight(context) * 0.9,
+                  width: ScreenSizer.deviceWidth(context) * 0.95,
+                  child: Row(
+                    children: [
+                      Video(
+                          height: ScreenSizer.deviceWidth(context) * 0.55,
+                          width: 600.0,
+                          myUrl: 'assests/videos/quizApp.mp4'),
+                      videoDescription(ScreenSizer.deviceWidth(context) * 0.4,
+                          300.0, projectDescription, false, false)
+                    ],
+                  ))
+              : SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Video(
+                          height: ScreenSizer.deviceHeight(context) * 0.8,
+                          width:
+                              ScreenSizer.deviceWidth(context) * 0.8, //500.0,
+                          myUrl: 'assests/videos/quizApp.mp4'),
+                      SizedBox(
+                        height: 70.0,
                       ),
-                    )),
+                      Center(
+                        child: Column(
+                          children: [
+                            videoDescription(
+                                ScreenSizer.deviceWidth(context) * 0.87,
+                                ScreenSizer.deviceHeight(context) * 1.5,
+                                projectDescription,
+                                false,
+                                false),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
       /*SizedBox(
             height: ScreenSizer.deviceHeight(context) * 0.9,
             width: ScreenSizer.deviceWidth(context) * 0.95,

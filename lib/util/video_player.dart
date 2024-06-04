@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_portfolio/util/constants.dart';
+import 'package:new_portfolio/util/screen_sizer.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
@@ -34,7 +35,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.black,
-      backgroundColor: lightBackground,
+      backgroundColor: darkBackground,
       body: _controller.value.isInitialized
           ? Stack(
               alignment: Alignment.center,
@@ -42,12 +43,19 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 //Transform.scale(scale: 1.5, child:  wrapping the VideoPlayer(_controller)
                 Container(
                   //color: Colors.red,
-                  width: 600,
-                  height: 600,
+                  width: ScreenSizer.isDesktop(context) ||
+                          ScreenSizer.isBigTablet(context)
+                      ? 600
+                      : ScreenSizer.deviceWidth(context),
+                  height: 500,
                   child: FittedBox(
                     fit: BoxFit.fill,
-                    child: SizedBox(
-                      width: 500,
+                    child: Container(
+                      color: darkBackground,
+                      width: ScreenSizer.isDesktop(context) ||
+                              ScreenSizer.isBigTablet(context)
+                          ? 600 //500
+                          : ScreenSizer.deviceWidth(context),
                       height: 500,
                       child: Transform.scale(
                         scale: widget.transformScale, //1.6,

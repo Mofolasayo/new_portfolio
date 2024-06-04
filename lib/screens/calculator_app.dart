@@ -9,7 +9,7 @@ class CalculatorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackground,
+      backgroundColor: darkBackground,
       appBar: AppBar(
         backgroundColor: darkBackground,
         title: Text(
@@ -30,11 +30,13 @@ class CalculatorApp extends StatelessWidget {
                       width: ScreenSizer.deviceWidth(context) * 0.95,
                       child: Row(
                         children: [
-                          Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
-                              'assests/videos/calculatorApp.mp4'),
+                          Video(
+                              height: ScreenSizer.deviceWidth(context) * 0.55,
+                              width: 600.0,
+                              myUrl: 'assests/videos/calculatorApp.mp4'),
                           videoDescription(
                               ScreenSizer.deviceWidth(context) * 0.4,
-                              300,
+                              300.0,
                               "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
                               false,
                               false)
@@ -45,14 +47,11 @@ class CalculatorApp extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Video(
-                              ScreenSizer.isMobile(context) ||
-                                      ScreenSizer.isBigMobile(context)
-                                  ? ScreenSizer.deviceWidth(context) * 0.8
-                                  : ScreenSizer.deviceWidth(context) * 0.7,
-                              500,
-                              'assests/videos/calculatorApp.mp4'),
+                              height: ScreenSizer.deviceHeight(context) * 0.8,
+                              width: 500.0,
+                              myUrl: 'assests/videos/calculatorApp.mp4'),
                           SizedBox(
-                            height: 70,
+                            height: 70.0,
                           ),
                           Center(
                             child: videoDescription(
@@ -61,7 +60,7 @@ class CalculatorApp extends StatelessWidget {
                                     ? ScreenSizer.deviceWidth(context) * 0.8
                                     : ScreenSizer.deviceWidth(context) * 0.6,*/
                                 ScreenSizer.deviceWidth(context) * 0.9,
-                                350,
+                                350.0,
                                 "I have built a simple user-friendly calculator app using Flutter specifically for the Android Operating System. This app is designed to offer basic arithmetic operations including addition, subtraction, multiplication, and division. The user interface is intuitive and the app effectively handles user input, providing a seamless and efficient calculation experience.",
                                 false,
                                 false),

@@ -39,7 +39,7 @@ class _MovingContainersState extends State<MovingContainers>
   Widget build(BuildContext context) {
     final List<Map<String, String>> imagesWithTitles = [
       {'path': 'assests/image/calculatorApp.jpg', 'title': 'Calculator App'},
-      {'path': 'assests/image/portfolio.jpg', 'title': 'Portfolio'},
+      {'path': 'assests/image/portfolio1.jpg', 'title': 'Portfolio'},
       {'path': 'assests/image/Sizzle.jpg', 'title': 'Sizzle'},
       {'path': 'assests/image/quizApp.jpg', 'title': 'Quiz App'},
       {'path': 'assests/image/tikTok.jpg', 'title': 'TikTok'},

@@ -18,7 +18,7 @@ Favorites List: it stores and keeps track of 'favorite' names on a dedicated pag
 Responsive Design: The app adapts seamlessly to different screen sizes, ensuring a smooth user experience across various devices.
 ''';
     return Scaffold(
-      backgroundColor: lightBackground,
+      backgroundColor: darkBackground,
       appBar: AppBar(
         backgroundColor: darkBackground,
         title: Text(
@@ -39,11 +39,13 @@ Responsive Design: The app adapts seamlessly to different screen sizes, ensuring
                       width: ScreenSizer.deviceWidth(context) * 0.95,
                       child: Row(
                         children: [
-                          Video(ScreenSizer.deviceWidth(context) * 0.5, 600,
-                              'assests/videos/wordGenerator.mp4'),
+                          Video(
+                              height: ScreenSizer.deviceWidth(context) * 0.5,
+                              width: 600.0,
+                              myUrl: 'assests/videos/wordGenerator.mp4'),
                           videoDescription(
                               ScreenSizer.deviceWidth(context) * 0.45,
-                              500,
+                              300.0,
                               myDescription,
                               false,
                               true)
@@ -54,14 +56,11 @@ Responsive Design: The app adapts seamlessly to different screen sizes, ensuring
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Video(
-                              ScreenSizer.isMobile(context) ||
-                                      ScreenSizer.isBigMobile(context)
-                                  ? ScreenSizer.deviceWidth(context) * 0.8
-                                  : ScreenSizer.deviceWidth(context) * 0.7,
-                              600,
-                              'assests/videos/wordGenerator.mp4'),
+                              height: ScreenSizer.deviceHeight(context) * 0.8,
+                              width: ScreenSizer.deviceWidth(context) * 0.8,
+                              myUrl: 'assests/videos/wordGenerator.mp4'),
                           SizedBox(
-                            height: 70,
+                            height: 70.0,
                           ),
                           Center(
                             child: videoDescription(
@@ -70,7 +69,7 @@ Responsive Design: The app adapts seamlessly to different screen sizes, ensuring
                                     ? ScreenSizer.deviceWidth(context) * 0.8
                                     : ScreenSizer.deviceWidth(context) * 0.6,*/
                                 ScreenSizer.deviceWidth(context) * 0.9,
-                                600,
+                                ScreenSizer.deviceHeight(context) * 1.5,
                                 myDescription,
                                 false,
                                 true),

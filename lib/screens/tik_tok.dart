@@ -11,7 +11,7 @@ class TikTok extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: lightBackground,
+        backgroundColor: darkBackground,
         appBar: AppBar(
           backgroundColor: darkBackground,
           title: Text(
@@ -32,11 +32,13 @@ class TikTok extends StatelessWidget {
                     width: ScreenSizer.deviceWidth(context) * 0.95,
                     child: Row(
                       children: [
-                        Video(ScreenSizer.deviceWidth(context) * 0.55, 600,
-                            'assests/videos/tikTokVideo.mp4'),
+                        Video(
+                            height: ScreenSizer.deviceWidth(context) * 0.55,
+                            width: 600.0,
+                            myUrl: 'assests/videos/tikTokVideo.mp4'),
                         videoDescription(
                             ScreenSizer.deviceWidth(context) * 0.4,
-                            300,
+                            300.0,
                             "A short-form video-sharing app built using Flutter, replicating the core functionalities of TikTok. Users can scroll through a feed of short videos, pause and play videos, and even have access to a built-in camera.",
                             false,
                             false)
@@ -47,12 +49,9 @@ class TikTok extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Video(
-                            ScreenSizer.isMobile(context) ||
-                                    ScreenSizer.isBigMobile(context)
-                                ? ScreenSizer.deviceWidth(context) * 0.8
-                                : ScreenSizer.deviceWidth(context) * 0.7,
-                            500,
-                            'assests/videos/tikTokVideo.mp4'),
+                            height: ScreenSizer.deviceHeight(context) * 0.8,
+                            width: ScreenSizer.deviceWidth(context) * 0.8,
+                            myUrl: 'assests/videos/tikTokVideo.mp4'),
                         SizedBox(
                           height: 70,
                         ),
@@ -63,7 +62,7 @@ class TikTok extends StatelessWidget {
                                     ? ScreenSizer.deviceWidth(context) * 0.8
                                     : ScreenSizer.deviceWidth(context) * 0.6,*/
                               ScreenSizer.deviceWidth(context) * 0.9,
-                              350,
+                              ScreenSizer.deviceWidth(context),
                               "A short-form video-sharing app built using Flutter, replicating the core functionalities of TikTok. Users can scroll through a feed of short videos, pause and play videos, and even have access to a built-in camera.",
                               false,
                               false),
